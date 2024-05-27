@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.actions{
+    text-align: right;
+}
+
+.ingredient-list, .selected-ingredients, .actions, #recipe-results {
+    margin-bottom: 20px;
+}
+
+.ingredient-container, .selected-container, .recipes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.ingredient, .selected-ingredient {
+    display: inline-block;
+    margin: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.ingredient img, .selected-ingredient img { 
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ddd;
+}
