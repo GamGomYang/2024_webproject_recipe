@@ -1,0 +1,180 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.home_cont {
+    margin: 20px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.orange title{    font-size: 24px;
+    margin-bottom: 10px;
+    color: orange;
+
+}
+
+.home_cont h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #28a745;
+}
+
+.home_cont h3 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.home_cont_r2 {
+    text-align: right;
+}
+.home_cont_r3{
+    margin-left: 30px;
+    margin-right:30px;
+}
+
+.btn_more {
+    font-size: 16px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+.cate_cont {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+}
+
+.cate_cont div {
+    text-align: center;
+    margin: 0 10px;
+    transition: transform 0.3s;
+}
+
+.cate_cont div:hover {
+
+}
+
+.cate_cont img {
+    width: 100px;
+    height: auto;
+}
+
+.cate_cont span {
+    display: block;
+    margin-top: 5px;
+    color: #555;
+}
+
+.s_list_ul_arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+}
+
+.slick-prev {
+    left: -40px;
+}
+
+.slick-next {
+    right: -40px;
+}
+
+.s_list_ul_arrow button {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.slick-arrow img {
+    width: 100%;
+    height: auto;
+}
+
+.cate_cont {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cate_cont > div {
+    flex: 1;
+    padding: 10px;
+}
+
+.cate_cont img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+.slick-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slick-prev, .slick-next {
+    z-index: 1000;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.slick-prev {
+    left: 10px;
+}
+
+.slick-next {
+    right: 10px;
+}
+
+
+.image-container img {
+    width: 80%;
+    height: 60%;
+}
+
+.nav-links {
+    display: inline-block;
+    margin-left: 20px;
+}
+.nav-links a {
+    margin: 0 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+
+.title-left-green {
+    color: #28a745;
+    text-align: left;
+}
+
+.ranking-icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(255, 255, 255, 0.7); 
+    border-radius: 50%;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.common_sp_list_li {
+    position: relative;
+}

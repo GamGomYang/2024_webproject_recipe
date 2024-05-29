@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비빔밥 레시피</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Nanum Gothic', sans-serif;
+            margin-top: 80px;
+            padding: 20px;
+        }
+        .navbar {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        h1 {
+            color: #333;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        .ingredients, .instructions {
+            margin-top: 20px;
+        }
+        .recipe-image {
+            width: 400px;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+        .ingredients ul {
+            column-count: 2;
+            column-gap: 40px; 
+        }
+        .recipe-info {
+            display: flex; 
+            justify-content: space-around; 
+            align-items: center; 
+            margin-bottom: 20px; 
+        }
+
+        .info-item {
+            text-align: center; 
+        }
+
+        .info-item img {
+            width: 50px; 
+            height: 50px;
+        }
+
+        .info-item p {
+            margin: 0; 
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">냉장고털기</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">레시피</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0 ml-auto">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h1>비빔밥 레시피</h1>
+        <img src="images/bibimbab.jpg" alt="비빔밥 이미지" class="recipe-image">
+        <div class="recipe-info">
+
+            <div class="info-item">
+                <img src="images/person.png" alt="인분 아이콘">
+                <p>1인분</p>
+            </div>
+            <div class="info-item">
+                <img src="images/time.png" alt="요리 시간 아이콘">
+                <p>약 20분</p>
+            </div>
+            <div class="info-item">
+                <img src="images/level.png" alt="난이도 아이콘">
+                <p>하</p>
+            </div>
+        </div>
+        <div class="ingredients">
+            <hr>
+            <br>
+            <h2>재료</h2>
+            <ul>
+                <li>밥 - 1공기</li>
+                <li>시금치 - 50g</li>
+                <li>콩나물 - 50g</li>
+                <li>애호박 - 1/4개</li>
+                <li>당근 - 1/4개</li>
+                <li>무나물 - 50g</li>
+                <li>쇠고기 (다진 것) - 50g</li>
+                <li>달걀 - 1개</li>
+                <li>고추장 - 1큰술</li>
+                <li>참기름 - 1/2큰술</li>
+                <li>간장 - 1/2큰술</li>
+                <li>다진 마늘 - 1작은술</li>
+                <li>설탕 - 1작은술</li>
+                <li>소금 - 약간</li>
+                <li>깨소금 - 약간</li>
+            </ul>
+            <br>
+        </div>
+        <div class="instructions">
+            <hr>
+            <br>
+            <h2>요리 방법</h2>
+            <ol>
+                <li>시금치는 데쳐서 소금과 참기름을 넣고 무칩니다.</li>
+                <li>콩나물은 삶아서 소금과 참기름을 넣고 무칩니다.</li>
+                <li>애호박과 당근은 채 썰어 볶아줍니다.</li>
+                <li>무나물은 채 썰어 볶아줍니다.</li>
+                <li>다진 쇠고기는 간장, 다진 마늘, 설탕을 넣고 볶아줍니다.</li>
+                <li>달걀은 프라이팬에 부쳐줍니다.</li>
+                <li>그릇에 밥을 담고 각종 나물과 고기를 올린 후 달걀 프라이를 올립니다.</li>
+                <li>고추장과 참기름, 깨소금을 곁들여 비빔밥을 완성합니다.</li>
+            </ol>
+            <br>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

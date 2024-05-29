@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레시피 분류</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/navtop.css">
+    <link rel="stylesheet" href="../css/best.css">
+    <link rel="stylesheet" href="../css/searchbar.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="../js/navtop.js" defer></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/best.js"></script>
+
+</head>
+<body>
+    <div class="top">
+        <h1>
+            <a href="index.html">
+                <img class="navtop_img" src="../image/logo.png" alt="로고">
+            </a>
+            <div class="nav-links">
+              <a href="냉장고털기 창 html연결">냉장고 털기</a>
+              <a href="레시피 창 html연결">레시피</a>
+            </div>
+        </h1>
+        <div class="search">
+            <form id="frmTopSearch" method="get" action="https://www.example.com/search">
+                <div class="search-container">
+                    <input id="searchText" name="q" type="text" class="form-control" placeholder="레시피 검색" autocomplete="off">
+                    <select aria-label="검색할 카테고리 선택" id="searchCategory" name="category">
+                        <option value="0">모든 카테고리</option>
+                        <option value="2984">한식</option>
+                        <option value="2984">중식</option>
+                        <option value="2984">일식</option>
+                        <option value="20081">밑반찬</option>
+                        <option value="550">메인반찬</option>
+                        <option value="2984">빠른조리</option>
+                        <option value="2984">샐러드</option>
+                        <option value="2984">육류</option>
+                        <option value="2984">닭고기</option>
+                        <option value="2984">술안주</option>
+                        <option value="2984">해산물</option>
+                    </select>
+                    <button type="button" onclick="document.getElementById('frmTopSearch').submit();">
+                        <img src="../image/search.png" alt="search">
+                        검색하기
+                    </button>
+                </div>
+            </form>
+        </div>
+        <ul class="user-menu">
+            <li>
+                <a href="https://www.example.com/login">
+                    <img src="../image/nav-mypage2.png" alt="내정보">
+                </a>
+            </li>
+            <li>
+                <a id="btnTopWrite" href="javascript:void(0)">
+                    <img src="../image/btn_write.gif" alt="글쓰기">
+                </a>
+                <div class="write-layer" style="display:none; margin-left: 10px;">
+                    <a href="https://www.example.com/recipe/insert" class="write-direct">
+                        <img src="../image/btn_list.gif" alt="목록">
+                        <span>목록</span>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <a href="https://shop.example.com" target="_blank">
+                    <img src="../image/btn_list.gif" alt="스토어">
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="gnb_nav">
+        <ul class="gnb_nav_ea10">
+            <li><a href="https://www.10000recipe.com/index.html" class="active">추천</a></li>
+            <li><a href="https://www.10000recipe.com/recipe/list.html">분류</a></li>
+            <li><a href="https://www.10000recipe.com/ranking/home_new.html">랭킹</a></li>
+            <li><a href="https://www.10000recipe.com/issue/list.html?types=magazine">매거진</a></li>
+            <li>
+                <a href="#" class="dropdown-toggle" id="dropdownMenu1_topMenu" data-toggle="dropdown" aria-expanded="false">
+                    더보기 <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="image-container" style="text-align: center; margin: 20px 0;">
+        <img src="../image/background.jpg" alt="Gourmet Cuisine">
+    </div>
+    <dl class="home_cont st8" id="cateList">
+        <dt>
+            <h3><a href="/recipe/list.html">레시피 <span>분류</span></a></h3>
+            <div class="home_cont_r2"><a href="/more_index.html" class="btn_more">더보기</a></div>
+        </dt>
+        <dd>
+            <div class="slick-container">
+                <div class="cate_cont">
+                    <div><a href="/recipe/list.html?cat=1"><img src="../image/food_image/1.png"><span>전체</span></a></div>
+                    <div><a href="/recipe/list.html?cat=2"><img src="../image/food_image/2.png"><span>밑반찬</span></a></div>
+                    <div><a href="/recipe/list.html?cat=3"><img src="../image/food_image/3.png"><span>메인반찬</span></a></div>
+                    <div><a href="/recipe/list.html?cat=4"><img src="../image/food_image/4.png"><span>빠른 조리</span></a></div>
+                    <div><a href="/recipe/list.html?cat=6"><img src="../image/food_image/11.png"><span>샐러드</span></a></div>
+                    <div><a href="/recipe/list.html?cat=7"><img src="../image/food_image/12.png"><span>육류</span></a></div>
+                    <div><a href="/recipe/list.html?cat=8"><img src="../image/food_image/13.png"><span>해산물</span></a></div>
+                    <div><a href="/recipe/list.html?cat=8"><img src="../image/food_image/14.png"><span>닭고기</span></a></div>
+                    <div><a href="/recipe/list.html?cat=5"><img src="../image/food_image/5.png"><span>생선</span></a></div>
+                    <div><a href="/recipe/list.html?cat=6"><img src="../image/food_image/6.png"><span>밥</span></a></div>
+                    <div><a href="/recipe/list.html?cat=7"><img src="../image/food_image/7.png"><span>술안주</span></a></div>
+                    <div><a href="/recipe/list.html?cat=8"><img src="../image/food_image/8.png"><span>파스타</span></a></div>
+                    <div><a href="/recipe/list.html?cat=4"><img src="../image/food_image/9.png"><span>빵</span></a></div>
+                    <div><a href="/recipe/list.html?cat=5"><img src="../image/food_image/10.png"><span>디저트</span></a></div>
+                </div>
+            </div>
+        </dd>
+    </dl>
+
+    <div class="home_cont_r3">
+        <h4 class="my-4 title-left-green">레시피 랭킹</h4>
+        <div class="post-container">
+            <div class="row" id="recipeList">
+            </div>
+            <div class="btn-more">
+                <button class="btn btn-primary" id="loadMore">더보기</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
