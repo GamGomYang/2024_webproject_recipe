@@ -56,7 +56,19 @@ document.addEventListener('DOMContentLoaded', function() {
         { name: '케첩', img: 'img/케첩.png' },
         { name: '후추', img: 'img/후추.png' },
     ];
-    
+
+    const recipes = [
+        {
+            name: '가지 볶음',
+            ingredients: ['가지', '간장', '마늘'],
+            img: 'img/가지.png'
+        },
+        {
+            name: '감자 조림',
+            ingredients: ['감자', '간장', '설탕'],
+            img: 'img/감자.png'
+        },
+    ];
 
     const ingredientContainer = document.getElementById('ingredients');
     const selectedIngredientContainer = document.getElementById('selected-ingredients');
@@ -73,14 +85,14 @@ document.addEventListener('DOMContentLoaded', function() {
         ingredientContainer.appendChild(ingredientDiv);
     });
 
+    const selectedIngredients = [];
+
     function selectIngredient(ingredient) {
         if (!selectedIngredients.includes(ingredient.name)) {
             selectedIngredients.push(ingredient.name);
             renderSelectedIngredients();
         }
     }
-
-    const selectedIngredients = [];
 
     function renderSelectedIngredients() {
         selectedIngredientContainer.innerHTML = '';
@@ -103,11 +115,22 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('reset-selection').addEventListener('click', resetSelection);
 
     function searchRecipes() {
-        // 여기에서 선택된 재료를 바탕으로 레시피를 검색하는 기능을 구현합니다.
-        // 예시로, 간단한 메시지를 표시합니다.
         recipeResultsContainer.innerHTML = '<p>레시피를 검색하는 중...</p>';
         setTimeout(() => {
-            recipeResultsContainer.innerHTML = '<p> [레시피 검색 결과] </p>';
+            const matchingRecipes = recipes.filter(recipe => 
+                recipe.ingredients.some(ingredient => selectedIngredients.includes(ingredient))
+            );
+
+            if (matchingRecipes.length > 0) {
+                recipeResultsContainer.innerHTML = matchingRecipes.map(recipes => `
+                    <div class="recipes">
+                        <img src="${recipes.img}" alt="${recipes.name}">
+                        <p>${recipes.name}</p>
+                    </div>
+                `).join('');
+            } else {
+                recipeResultsContainer.innerHTML = '<p>레시피 검색 결과가 없습니다.</p>';
+            }
         }, 1000);
     }
 
