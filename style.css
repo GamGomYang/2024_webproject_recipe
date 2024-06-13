@@ -1,6 +1,28 @@
+@font-face {
+    font-family: 'ONE-Mobile-POP';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    
+	font-family: 'ONE-Mobile-POP';
+}
+
+h1{
+    font-size: 45px;
+    color: #ff7301a9;
+    text-decoration-line: overline;
+    text-decoration-style: double;
+    text-decoration-thickness: 4px;
+}
+
+h2{
+    color: #ff730176;
+    text-decoration-line: overline;
+    text-decoration-style: solid;
+    text-decoration-thickness: 5px;
+    text-align: center;
 }
 
 .container {
@@ -60,4 +82,8 @@ button {
 
 button:hover {
     background-color: #ddd;
+}
+
+.slick-prev:before, .slick-next:before {
+    color: #000;
 }

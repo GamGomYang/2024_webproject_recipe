@@ -91,36 +91,74 @@ document.addEventListener('DOMContentLoaded', function() {
             img: 'img/감자.png'
         },
     ];
-    
+
     const ingredientContainer = document.getElementById('ingredients');
+    ingredientContainer.innerHTML = ''; // 슬라이드 초기화를 위한 기존 내용 제거
+
+    const slide1Container = document.createElement('div');
+    slide1Container.classList.add('slide');
+    const slide2Container = document.createElement('div');
+    slide2Container.classList.add('slide');
+    
     const selectedIngredientContainer = document.getElementById('selected-ingredients');
     const recipeResultsContainer = document.getElementById('recipes');
 
-    ingredients.forEach(ingredient => {
+    const firstHalf = ingredients.slice(0, ingredients.findIndex(ing => ing.name === '햄') + 1);
+    const secondHalf = ingredients.slice(ingredients.findIndex(ing => ing.name === '햄') + 1);
+
+    firstHalf.forEach(ingredient => {
         const ingredientDiv = document.createElement('div');
         ingredientDiv.style.border = '3px dotted #ffffff';
         ingredientDiv.style.margin = '3px';
-        
         ingredientDiv.classList.add('ingredient');
         ingredientDiv.innerHTML = `
             <img src="${ingredient.img}" alt="${ingredient.name}">
             <p>${ingredient.name}</p>
         `;
         ingredientDiv.addEventListener('click', () => {
-            ingredientDiv.style.border = '3px dotted #ffcf10'; 
-            selectIngredient(ingredient);
+            selectIngredient(ingredient, ingredientDiv);
         });
-        ingredientContainer.appendChild(ingredientDiv);
-        
+        slide1Container.appendChild(ingredientDiv);
+    });
+
+    secondHalf.forEach(ingredient => {
+        const ingredientDiv = document.createElement('div');
+        ingredientDiv.style.border = '3px dotted #ffffff';
+        ingredientDiv.style.margin = '3px';
+        ingredientDiv.classList.add('ingredient');
+        ingredientDiv.innerHTML = `
+            <img src="${ingredient.img}" alt="${ingredient.name}">
+            <p>${ingredient.name}</p>
+        `;
+        ingredientDiv.addEventListener('click', () => {
+            selectIngredient(ingredient, ingredientDiv);
+        });
+        slide2Container.appendChild(ingredientDiv);
+    });
+
+    ingredientContainer.appendChild(slide1Container);
+    ingredientContainer.appendChild(slide2Container);
+
+    $(ingredientContainer).slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        dots: true,
+        infinite: false
     });
 
     const selectedIngredients = [];
 
-    function selectIngredient(ingredient) {
-        if (!selectedIngredients.includes(ingredient.name)) {
+    function selectIngredient(ingredient, element) {
+        const index = selectedIngredients.indexOf(ingredient.name);
+        if (index === -1) {
             selectedIngredients.push(ingredient.name);
-            renderSelectedIngredients();
+            element.style.border = '3px dotted #ffcf10';
+        } else {
+            selectedIngredients.splice(index, 1);
+            element.style.border = '3px dotted #ffffff';
         }
+        renderSelectedIngredients();
     }
 
     function renderSelectedIngredients() {
@@ -136,6 +174,10 @@ document.addEventListener('DOMContentLoaded', function() {
             imgElement.style.height = '50px'; // 이미지 크기 변경
             selectedDiv.appendChild(imgElement);
             selectedDiv.innerHTML += `<p>${ingredient.name}</p>`;
+            selectedDiv.addEventListener('click', () => {
+                const originalElement = document.querySelector(`.ingredient img[alt="${ingredient.name}"]`).parentNode;
+                selectIngredient(ingredient, originalElement);
+            });
             selectedIngredientContainer.appendChild(selectedDiv);
         });
     }
@@ -146,15 +188,15 @@ document.addEventListener('DOMContentLoaded', function() {
     function searchRecipes() {
         recipeResultsContainer.innerHTML = '<p>레시피를 검색하는 중...</p>';
         setTimeout(() => {
-            const matchingRecipes = recipes.filter(recipe => 
-                recipe.ingredients.some(ingredient => selectedIngredients.includes(ingredient))
+            const matchingRecipes = recipes.filter(recipe =>
+                selectedIngredients.every(ingredient => recipe.ingredients.includes(ingredient))
             );
 
             if (matchingRecipes.length > 0) {
-                recipeResultsContainer.innerHTML = matchingRecipes.map(recipes => `
+                recipeResultsContainer.innerHTML = matchingRecipes.map(recipe => `
                     <div class="recipes">
-                        <img src="${recipes.img}" alt="${recipes.name}">
-                        <p>${recipes.name}</p>
+                        <img src="${recipe.img}" alt="${recipe.name}">
+                        <p>${recipe.name}</p>
                     </div>
                 `).join('');
             } else {
@@ -162,16 +204,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }, 1000);
     }
-    function resetSelection() {
-    // 모든 선택된 재료의 테두리 색상을 초기화합니다.
-    const selectedIngredientsElements = document.querySelectorAll('.ingredient');
-    selectedIngredientsElements.forEach(ingredient => {
-        ingredient.style.border = '3px dotted #ffffff';
-    });
 
-    selectedIngredients.length = 0;
-    renderSelectedIngredients();
-    recipeResultsContainer.innerHTML = '';
-}
-    
+    function resetSelection() {
+        selectedIngredients.length = 0;
+        renderSelectedIngredients();
+        document.querySelectorAll('.ingredient').forEach(ingredientDiv => {
+            ingredientDiv.style.border = '3px dotted #ffffff';
+        });
+        recipeResultsContainer.innerHTML = '';
+    }
 });
