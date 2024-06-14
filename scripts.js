@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { name: '떡', img: 'img/떡.png' },
         { name: '레몬', img: 'img/레몬.png' },
         { name: '마늘', img: 'img/마늘.png' },
+        { name: '마늘쫑', img: 'img/마늘쫑.png' },
         { name: '메추리알', img: 'img/메추리알.png' },
         { name: '무', img: 'img/무.png' },
         { name: '미역', img: 'img/미역.png' },
@@ -78,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function() {
         { name: '케첩', img: 'img/케첩.png' },
         { name: '후추', img: 'img/후추.png' },
     ];
-
     const recipes = [
         {
             name: '가지 볶음',
@@ -90,11 +90,30 @@ document.addEventListener('DOMContentLoaded', function() {
             ingredients: ['감자', '간장', '설탕'],
             img: 'img/감자.png'
         },
+        {
+            name: '김밥',
+            ingredients: ['김','밥', '당근','오이', '단무지',
+                '계란',
+                '시금치',
+                '햄',
+                '참기름',
+                '소금',
+                '깨소금'
+            ],
+            img: 'images/kimbab.jpg'
+        },
+        {
+            name: '순두부찌개',
+            ingredients: ['순두부', '돼지고기 다짐육', '대파', '양파', '고추', '마늘', '고추기름', '고춧가루', '간장', '물', '참기름', '소금'],
+            img: 'img/sundubu.png'
+        }
     ];
 
+    
     const ingredientContainer = document.getElementById('ingredients');
-    ingredientContainer.innerHTML = ''; // 슬라이드 초기화를 위한 기존 내용 제거
-
+    ingredientContainer.innerHTML = '';
+    
+    //슬라이드 생성
     const slide1Container = document.createElement('div');
     slide1Container.classList.add('slide');
     const slide2Container = document.createElement('div');
@@ -105,7 +124,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const firstHalf = ingredients.slice(0, ingredients.findIndex(ing => ing.name === '햄') + 1);
     const secondHalf = ingredients.slice(ingredients.findIndex(ing => ing.name === '햄') + 1);
-
+    
+    //첫 번째 슬라이드(재료 목록)
     firstHalf.forEach(ingredient => {
         const ingredientDiv = document.createElement('div');
         ingredientDiv.style.border = '3px dotted #ffffff';
@@ -121,6 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
         slide1Container.appendChild(ingredientDiv);
     });
 
+    //두 번째 슬라이드(소스 목록)
     secondHalf.forEach(ingredient => {
         const ingredientDiv = document.createElement('div');
         ingredientDiv.style.border = '3px dotted #ffffff';
@@ -135,10 +156,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         slide2Container.appendChild(ingredientDiv);
     });
-
+    
     ingredientContainer.appendChild(slide1Container);
     ingredientContainer.appendChild(slide2Container);
 
+    //슬라이드 설정
     $(ingredientContainer).slick({
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -149,6 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const selectedIngredients = [];
 
+    //선택한 재료 추가/삭제
     function selectIngredient(ingredient, element) {
         const index = selectedIngredients.indexOf(ingredient.name);
         if (index === -1) {
@@ -161,6 +184,7 @@ document.addEventListener('DOMContentLoaded', function() {
         renderSelectedIngredients();
     }
 
+    //선택한 재료 출력
     function renderSelectedIngredients() {
         selectedIngredientContainer.innerHTML = '';
         selectedIngredients.forEach(ingredientName => {
@@ -185,26 +209,40 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('search-recipes').addEventListener('click', searchRecipes);
     document.getElementById('reset-selection').addEventListener('click', resetSelection);
 
+    //레시피 검색
     function searchRecipes() {
-        recipeResultsContainer.innerHTML = '<p>레시피를 검색하는 중...</p>';
+        recipeResultsContainer.innerHTML = '<h5>레시피를 검색하는 중...</h5>';
+    
+        //선택된 재료가 없는 경우
+        if (selectedIngredients.length === 0) {
+            recipeResultsContainer.innerHTML = '<h5>선택된 재료가 없습니다.</h5>';
+            window.alert('선택된 재료가 없습니다.');
+            return;
+        }
+        
+        //레시피 출력
         setTimeout(() => {
             const matchingRecipes = recipes.filter(recipe =>
                 selectedIngredients.every(ingredient => recipe.ingredients.includes(ingredient))
             );
-
+    
             if (matchingRecipes.length > 0) {
                 recipeResultsContainer.innerHTML = matchingRecipes.map(recipe => `
-                    <div class="recipes">
-                        <img src="${recipe.img}" alt="${recipe.name}">
-                        <p>${recipe.name}</p>
-                    </div>
+                    <a href="recipe.html?name=${encodeURIComponent(recipe.name)}" class="recipe-link">
+                        <div class="recipe" data-name="${recipe.name}">
+                            <img src="${recipe.img}" alt="${recipe.name}">
+                            <p>${recipe.name}</p>
+                        </div>
+                    </a>
                 `).join('');
+    
             } else {
-                recipeResultsContainer.innerHTML = '<p>레시피 검색 결과가 없습니다.</p>';
+                recipeResultsContainer.innerHTML = '<h5>레시피 검색 결과가 없습니다.</h5>';
             }
         }, 1000);
-    }
+    }    
 
+    //초기화
     function resetSelection() {
         selectedIngredients.length = 0;
         renderSelectedIngredients();
