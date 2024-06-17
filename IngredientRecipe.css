@@ -1,0 +1,147 @@
+.app {
+  font-family: 'Arial', sans-serif;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f5e3;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header h2 {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.header h3 {
+  font-size: 1em;
+  color: #555;
+}
+
+.ingredients {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.ingredient-button p {
+  margin: 0;
+  font-size: 0.8em;
+  margin-bottom: 5px; 
+}
+
+.ingredient-button {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.2s;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ingredient-button:hover {
+  transform: scale(1.1);
+}
+
+.ingredient-image img {
+  width: 35px;
+  height: 35px;
+}
+
+.selected-ingredient {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.2em;
+}
+
+.recipes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.recipe {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  width: 250px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.recipe:hover {
+  transform: scale(1.05);
+}
+
+.recipe-image {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.recipe-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; 
+  border-radius: 10px;
+}
+
+.recipe-info {
+  margin-top: 10px;
+}
+
+.recipe-info h2 {
+  font-size: 1.1em;
+  margin: 0.5em 0;
+}
+
+.recipe-info {
+  margin-top: 10px;
+  text-align: left;
+}
+
+.recipe-title {
+  font-size: 1.1em;
+  margin: 0.5em 0 0.2em 0; 
+}
+
+.recipe-author {
+  margin: 0;
+  color: #777;
+  font-size: 0.9em;
+}
+
+
+.recipe-stats {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.recipe-stats img {
+  width: 16px;
+  height: 16px;
+}
+
+.likes, .comments {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

@@ -1,0 +1,15 @@
+.scroll-container {
+  height: 300px; 
+  overflow-y: auto; 
+}
+
+.custom-scrollbar {
+  list-style: none;
+  padding: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-around;
+    font-weight: bold;}
+

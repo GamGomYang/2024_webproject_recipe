@@ -1,0 +1,77 @@
+.Guide-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .Guide-item {
+    box-sizing: border-box;
+    width: 100%;
+  }
+  
+  .Guide-card {
+    background-color: white;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .Guide-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .Guide-image-container {
+    width: 100%;
+    height: 200px; 
+    overflow: hidden;
+  }
+  
+  .Guide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .Guide-details {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .Guide-title {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  .Guide-author {
+    font-size: 14px;
+    text-align: left;
+    color: #888;
+    flex: 1;
+  }
+  
+  .Guide-views {
+    font-size: 14px;
+    color: #000000;
+    text-align: right;
+    flex: 1;
+  }
+  
+  .Guide-card a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .Guide-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #888;
+  }
+  

@@ -1,0 +1,61 @@
+
+
+.CategoryBanner-title {
+  text-align: left;
+  margin-bottom: 20px;
+  margin-left: 30px;
+}
+
+.CategoryBanner-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 20px;
+  padding: 0;
+  list-style: none;
+  max-width: 1100px; 
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.CategoryBanner-item {
+  display: flex;
+  justify-content: center;
+}
+
+.CategoryBanner-card {
+  background-color: #ffefc8;
+  border-radius: 15px;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  max-width: 200px; 
+  transition: transform 0.3s;
+}
+
+.CategoryBanner-card:hover {
+  transform: scale(1.05);
+}
+
+.CategoryBanner-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.CategoryBanner-image {
+  width: 50px;
+  height: 50px;
+}
+
+.CategoryBanner-details-container {
+  margin-top: 10px;
+}
+
+.CategoryBanner-name {
+  font-size: 14px;
+}
+
+.CategoryBanner-card a {
+  color: inherit;
+  text-decoration: none;
+}

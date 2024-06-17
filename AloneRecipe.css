@@ -1,0 +1,60 @@
+.alone-recipe-app {
+    text-align: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    margin-top: 10px;
+  }
+  
+  .alone-recipe-title {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+  }
+  
+  .alone-recipe-subtitle {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .alone-recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    margin-top: 10px;
+    margin-bottom: 100px;
+  }
+  
+  .alone-recipe-card {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s;
+    position: relative;
+  }
+  
+  .alone-recipe-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .alone-recipe-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .alone-recipe-card-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    font-size: 1.1em;
+    white-space: nowrap; 
+    overflow: hidden;    
+    text-overflow: ellipsis; 
+}

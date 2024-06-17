@@ -1,0 +1,15 @@
+
+.footer {
+    background-color: rgb(255, 201, 99);
+    padding: 24px;
+    text-align: center;
+  }
+  
+  .footer h6 {
+    margin-bottom: 7px;
+  }
+  
+  .footer p {
+    color: rgba(0, 0, 0, 0.6);
+  }
+  
